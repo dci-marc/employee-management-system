@@ -1,7 +1,6 @@
 package org.dcistudent.employeemanagementsystem.entities;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -9,14 +8,14 @@ import org.hibernate.annotations.OnDeleteAction;
 @Table(name = "department")
 public class Department {
   @Id
-  @ColumnDefault("nextval('department_id_seq')")
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id", nullable = false)
   private Integer id;
 
-  @Column(name = "name", nullable = false, length = Integer.MAX_VALUE)
+  @Column(name = "name", nullable = false)
   private String name;
 
-  @Column(name = "location", nullable = false, length = Integer.MAX_VALUE)
+  @Column(name = "location", nullable = false)
   private String location;
 
   @ManyToOne(fetch = FetchType.LAZY)

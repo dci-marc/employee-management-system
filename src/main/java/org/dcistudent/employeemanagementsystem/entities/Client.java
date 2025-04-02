@@ -1,29 +1,25 @@
 package org.dcistudent.employeemanagementsystem.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import org.hibernate.annotations.ColumnDefault;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "client")
 public class Client {
   @Id
-  @ColumnDefault("nextval('client_id_seq')")
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id", nullable = false)
   private Integer id;
 
-  @Column(name = "name", nullable = false, length = Integer.MAX_VALUE)
+  @Column(name = "name", nullable = false)
   private String name;
 
-  @Column(name = "industry", nullable = false, length = Integer.MAX_VALUE)
+  @Column(name = "industry", nullable = false)
   private String industry;
 
-  @Column(name = "email", nullable = false, length = Integer.MAX_VALUE)
+  @Column(name = "email", nullable = false)
   private String email;
 
-  @Column(name = "phone", nullable = false, length = Integer.MAX_VALUE)
+  @Column(name = "phone", nullable = false)
   private String phone;
 
   public Integer getId() {
