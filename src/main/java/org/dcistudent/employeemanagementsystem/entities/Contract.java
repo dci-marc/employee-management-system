@@ -7,7 +7,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "contracts")
+@Table(name = "contract")
 public class Contract {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
