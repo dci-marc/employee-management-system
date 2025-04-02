@@ -1,5 +1,6 @@
 package org.dcistudent.employeemanagementsystem.repositories;
 
+import org.dcistudent.employeemanagementsystem.entities.Department;
 import org.dcistudent.employeemanagementsystem.entities.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -14,7 +15,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
   @Modifying
   @Query(
       "INSERT INTO Employee (firstName, lastName, email, phone, dateHire, salary, department) " +
-      "VALUES (:firstName, :lastName, :email, :phone, :dateHire, :salary, :departmentId)"
+      "VALUES (:firstName, :lastName, :email, :phone, :dateHire, :salary, :department)"
   )
   void create(
       String firstName,
@@ -23,6 +24,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
       String phone,
       LocalDate hireDate,
       BigDecimal salary,
-      Long departmentId
+      Department department
   );
 }
