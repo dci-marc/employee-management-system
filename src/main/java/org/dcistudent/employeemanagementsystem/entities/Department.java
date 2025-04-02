@@ -22,7 +22,7 @@ public class Department {
   @ManyToOne(fetch = FetchType.LAZY)
   @OnDelete(action = OnDeleteAction.CASCADE)
   @JoinColumn(name = "employee_id")
-  private Department employee;
+  private Employee employee;
 
   public Integer getId() {
     return this.id;
@@ -48,11 +48,11 @@ public class Department {
     this.location = location;
   }
 
-  public Department getEmployee() {
+  public Employee getEmployee() {
     return this.employee;
   }
 
-  public void setEmployee(Department employee) {
+  public void setEmployee(Employee employee) {
     this.employee = employee;
   }
 
