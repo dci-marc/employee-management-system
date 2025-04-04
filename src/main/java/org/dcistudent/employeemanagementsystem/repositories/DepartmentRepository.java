@@ -13,4 +13,9 @@ public interface DepartmentRepository extends JpaRepository<Department, Long> {
       "INSERT INTO Department (name, location) VALUES (:name, :location)"
   )
   void create(String name, String location);
+
+  @Query(
+      "SELECT d FROM Department d WHERE d.name ILIKE CONCAT('%', :name, '%')"
+  )
+  Department findByName(String name);
 }
